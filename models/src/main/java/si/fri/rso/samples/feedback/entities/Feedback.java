@@ -5,8 +5,9 @@ import javax.persistence.*;
 @Entity(name = "feedback")
 @NamedQueries(value =
         {
-                @NamedQuery(name = "Feedback.getAll", query = "SELECT o FROM feedback o")
-                
+                @NamedQuery(name = "Feedback.getAll", query = "SELECT o FROM feedback o"),
+                @NamedQuery(name = "Feedback.findByOrderId", query = "SELECT o FROM feedback o WHERE o.orderId = " +
+                        ":orderId")
         })
 public class Feedback {
 
