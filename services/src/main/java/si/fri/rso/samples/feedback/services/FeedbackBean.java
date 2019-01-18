@@ -4,11 +4,14 @@ import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
 import si.fri.rso.samples.feedback.entities.Feedback;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.NotFoundException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
 import java.util.logging.Logger;
@@ -16,10 +19,12 @@ import java.util.logging.Logger;
 @ApplicationScoped
 public class FeedbackBean {
 
+
     private Logger log = Logger.getLogger(FeedbackBean.class.getName());
 
     @Inject
     private EntityManager em;
+
 
     public List<Feedback> getFeedback(UriInfo uriInfo) {
 
