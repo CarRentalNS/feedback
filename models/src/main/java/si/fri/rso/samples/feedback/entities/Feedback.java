@@ -15,6 +15,7 @@ public class Feedback {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "order_id")
     private String customerId;
 
     @Column(name = "order_id")
